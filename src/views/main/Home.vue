@@ -18,9 +18,15 @@
          <div class="collapse navbar-collapse bg-white custom-header-md-open" id="navbarNav">
             <ul class="navbar-nav">
                <li class="nav-item active">
+                 <router-link to='index'
+                 class='nav-link'>index</router-link>
+              </li>
+
+               <li class="nav-item active">
                  <router-link to='about'
                  class='nav-link'>關於我們</router-link>
               </li>
+
               <li class="nav-item">
                 <router-link to='ShareholderInfo'
                 class='nav-link'>股東訊息</router-link>

@@ -10,6 +10,11 @@ const routes = [
     component: () => import('../views/main/Homecontainer.vue'),
     children: [
       {
+        path: 'index',
+        name: 'Index',
+        component: () => import('../views/main/Index.vue'),
+      },
+      {
         path: 'about',
         name: 'About',
         component: () => import('../views/main/About.vue'),

@@ -7,10 +7,11 @@
         <div class="col-md-6">
           <img
           src="https://images.unsplash.com/photo-1526038335545-4b96864eaee7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1867&q=80
-          alt=" class="img-fluid">
+          alt="
+          class="img-fluid">
         </div>
         <div class="col-md-6 d-flex flex-column justify-content-center mt-md-0 mt-3">
-          <h2 class="font-weight-bold">Lorem ipsum dolor sit</h2>
+          <h2 class="font-weight-bold">ABOUT</h2>
           <h5 class="font-weight-normal text-muted mt-2">
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
             nonumy eirmod tempor
@@ -19,40 +20,43 @@
             <input type="text" class="form-control rounded-0" placeholder="" />
             <div class="input-group-append">
               <button class="btn btn-dark rounded-0" type="button" id="search">
-                Lorem ipsum
+                Search
               </button>
             </div>
           </div>
         </div>
       </div>
+
       <div class="row mt-5">
         <div class="col-md-6 mt-md-4">
           <div class="card border-0 mb-4 position-relative position-relative">
             <img
-              src="https://images.unsplash.com/photo-1502743780242-f10d2ce370f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1916&q=80"
+              src="https://images.unsplash.com/photo-1589944672252-5f743e43f465?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
               class="card-img-top rounded-0"
               alt="..."
             />
             <div class="card-body p-0">
-              <h4 class="mb-0 mt-4">Lorem ipsum</h4>
+              <h4 class="mb-0 mt-4">Lorem B02</h4>
               <div class="d-flex justify-content-between mt-3">
                 <p class="card-text text-muted mb-0 w-75">
                   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                   diam nonumy eirmod.
                 </p>
                 <button class="btn btn-outline-dark rounded-0 text-nowrap">
-                  Lorem ipsum
+                  Lorem 02
                 </button>
               </div>
             </div>
           </div>
         </div>
+
         <div class="col-md-6 mt-md-4">
           <div class="card border-0 mb-4 position-relative position-relative">
-            <img src="https://images.unsplash.com/photo-1502743780242-f10d2ce370f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1916&q=80" class="card-img-top rounded-0" alt="..."
+            <img src="https://images.unsplash.com/photo-1589944672248-281f7da48d35?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+            class="card-img-top rounded-0" alt="..."
             />
             <div class="card-body p-0">
-              <h4 class="mb-0 mt-4">Lorem ipsum</h4>
+              <h4 class="mb-0 mt-4">Lorem B03</h4>
               <div class="d-flex justify-content-between mt-3">
                 <p class="card-text text-muted mb-0 w-75">
                   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
@@ -65,6 +69,7 @@
             </div>
           </div>
         </div>
+
         <div class="col-md-6 mt-md-4">
           <div class="card border-0 mb-4 position-relative position-relative">
             <img
@@ -86,12 +91,13 @@
             </div>
           </div>
         </div>
+
         <div class="col-md-6 mt-md-4">
           <div class="card border-0 mb-4 position-relative position-relative">
             <img src="https://images.unsplash.com/photo-1502743780242-f10d2ce370f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1916&q=80" class="card-img-top rounded-0" alt="..."
             />
             <div class="card-body p-0">
-              <h4 class="mb-0 mt-4">Lorem ipsum</h4>
+              <h4 class="mb-0 mt-4">Lorem 04</h4>
               <div class="d-flex justify-content-between mt-3">
                 <p class="card-text text-muted mb-0 w-75">
                   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed

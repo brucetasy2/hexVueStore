@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import Vue from 'vue';
 import jQuery from 'jquery';
-// import 'bootstrap';
+import 'bootstrap';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import VueSweetalert2 from 'vue-sweetalert2';

@@ -117,7 +117,7 @@
 
               <div class="col-sm-8">
                 <div class="form-group">
-                  <ValidationProvider name="標題" rules="required|min:6"  v-slot="{ errors }">
+                  <ValidationProvider name="標題" rules="required|min:4"  v-slot="{ errors }">
                       <label class="d-flex" for="title" >標題</label>
                       <input
                         id="title"
@@ -404,6 +404,7 @@ export default {
             icon: 'success',
             title: `刪除產品 ${this.tempProduct.title}`,
             text: '成功 !',
+            timer: 1500,
           });
           this.getProducts(this.pagination.current_page);
         })
@@ -459,6 +460,7 @@ export default {
           icon: 'success',
           title: `${this.isNew ? '新增產品' : '修改產品'} 存檔`,
           text: '成功 !',
+          timer: 1500,
         });
         this.isLoading = false;
         this.getProducts(this.pagination.current_page);
