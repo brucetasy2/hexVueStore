@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Loading :active.sync="isLoading" />
     <div class="container">
       <div class="row flex-md-row-reverse flex-column">
         <div class="col-md-6">
@@ -46,7 +47,8 @@
               </h5>
               <p class="card-text text-center" v-html="item.content"> </p>
               <div class="d-flex justify-content-end">
-                <button class="btn btn btn-outline-success text-nowrap rounded-lg ">
+                <button @click="addtoCart(item, 1)"
+                class="btn btn btn-outline-success text-nowrap rounded-lg">
                   加入購物車
                 </button>
               </div>
@@ -124,6 +126,9 @@
 </template>
 
 <script>
+// eslint-disable-next-line import/extensions
+import { EventBus } from '@/components/Eventbus.js';
+
 export default {
   name: 'index',
   components: {
@@ -137,6 +142,10 @@ export default {
       isLoading: false,
       uuid: process.env.VUE_APP_UUID,
       userEmail: '',
+      carts: {},
+      status: {
+        loadingItem: '',
+      },
     };
   },
   created() {
@@ -180,24 +189,62 @@ export default {
         });
       }
     },
-    // getDetails(id) {
-    //   this.isLoading = true;
-    //   const api = `${process.env.VUE_APP_APIPATH}${this.uuid}/admin/ec/product/${id}`;
-    //   this.$http.get(api)
-    //     .then((res) => {
-    //       this.tempProduct = res.data.data;
-    //       $('#productModal').modal('show');
-    //       this.isLoading = false;
-    //     })
-    //     .catch((error) => {
-    //       this.$swal.fire({
-    //         icon: 'error',
-    //         title: 'Oops3...',
-    //         text: `錯誤代碼${error.request.status}`,
-    //       });
-    //       this.isLoading = false;
-    //     });
-    // },
+
+    addtoCart(item, quantity = 1) {
+      this.tempProduct = item;
+      this.status.loadingItem = item.id;
+      const cart = {
+        product: item.id,
+        quantity,
+      };
+
+      this.isLoading = true;
+      const api = `${process.env.VUE_APP_APIPATH}${this.uuid}/ec/shopping`;
+      this.$http
+        .post(api, cart)
+        .then(() => {
+          this.isLoading = false;
+          this.status.loadingItem = '';
+          this.$swal.fire({
+            icon: 'sucess',
+            title: '加入購物車..',
+            text: '成功',
+            timer: 1500,
+          });
+          this.getCart();
+        })
+        .catch((error) => {
+          this.$swal.fire({
+            icon: 'error',
+            title: '加入購物車..',
+            text: `失敗,錯誤代碼${error.request.status}`,
+          });
+          this.isLoading = false;
+          this.status.loadingItem = '';
+        });
+    },
+
+    getCart() {
+      this.isLoading = true;
+      const api = `${process.env.VUE_APP_APIPATH}${this.uuid}/ec/shopping`;
+      this.$http
+        .get(api)
+        .then((res) => {
+          this.carts = res.data.data;
+          this.isLoading = false;
+          // 購物車目前商品統計
+          EventBus.$emit('cartsQuantity', this.carts.length);
+        })
+        .catch((error) => {
+          this.$swal.fire({
+            icon: 'error',
+            title: '取得購物車內容失敗...',
+            text: `錯誤代碼${error.request.status}`,
+          });
+          this.isLoading = false;
+        });
+    },
+
   },
 };
 </script>

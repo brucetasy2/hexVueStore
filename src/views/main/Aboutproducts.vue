@@ -33,13 +33,21 @@
         <div  class="col-lg-4 col-sm-6 mb-3 mb-4"
         v-for="item in products" :key="item.id">
           <div  class="card h-100 rounded-0">
-            <a href="#" lass="">
+            <!-- <a href="#/Productsdetail/${item.id}" lass="">
               <div class="rounded-0"
                 style="height: 300px; background-size: cover;
                 background-position: center center;"
                 :style="{backgroundImage: 'url(' +item.imageUrl[0] + ')' }">
               </div>
-            </a>
+            </a> -->
+
+            <router-link :to="`/Productsdetail/${item.id}`">
+              <div class="rounded-0"
+                style="height: 300px; background-size: cover;
+                background-position: center center;"
+                :style="{backgroundImage: 'url(' +item.imageUrl[0] + ')' }">
+              </div>
+            </router-link>
 
             <div class="position-absolute p-2 heart-icon bg-secondary">
               <i class="fas fa-heart "
@@ -69,7 +77,7 @@
                 @click="addtoCart(item, 1)"
                 >
                 <i  aria-hidden="true"
-                class="fa fa-cart-plus"></i> 加到購物車
+                class="fa fa-cart-plus"></i> 加入購物車
               </button>
             </div>
 
@@ -177,6 +185,7 @@ export default {
             icon: 'sucess',
             title: '加入購物車..',
             text: '成功',
+            timer: 1500,
           });
           this.getCart();
         })

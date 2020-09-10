@@ -6,26 +6,34 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    name: 'Menucontainer',
     component: () => import('../views/main/Homecontainer.vue'),
     children: [
       {
-        path: 'index',
+        path: '',
+        component: () => import('../views/main/Index.vue'),
+      },
+      {
+        path: '/index',
         name: 'Index',
         component: () => import('../views/main/Index.vue'),
       },
       {
-        path: 'aboutproducts',
+        path: '/aboutproducts',
         name: 'Aboutproducts',
         component: () => import('../views/main/Aboutproducts.vue'),
       },
       {
-        path: 'ShareholderInfo',
+        path: '/productsdetail/:id',
+        name: 'Productsdetail',
+        component: () => import('../views/main/Productsdetail.vue'),
+      },
+      {
+        path: '/ShareholderInfo',
         name: 'ShareholderInfo',
         component: () => import('../views/main/ShareholderInfo.vue'),
       },
       {
-        path: 'NEXT',
+        path: '/NEXT',
         name: 'NEXT_STEP',
         component: () => import('../views/main/Next.vue'),
       },
@@ -70,8 +78,8 @@ const routes = [
   },
   {
     path: '*',
-    name: 'Admin2 管理頁面',
-    component: () => import('../views/submenu/Menucontainer.vue'),
+    redirect: '/',
+    meta: {},
   },
 ];
 
