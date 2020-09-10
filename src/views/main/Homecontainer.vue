@@ -9,10 +9,7 @@
       </div>
     </div>
     <router-view />
-
    <Footer/>
-<!-- new ed -->
-
   </div>
 </template>
 
