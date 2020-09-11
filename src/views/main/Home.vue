@@ -39,7 +39,7 @@
                class='mr-5 nav-link fas fa-heart'>
             </router-link>
 
-            <router-link to='ShareholderInfo'
+            <router-link to='/Cart2'
                class='mr-5 nav-link fas fa-shopping-cart'>
                <span
                 class="badge badge-pill badge-danger"

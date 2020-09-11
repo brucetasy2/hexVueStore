@@ -38,6 +38,21 @@ const routes = [
         component: () => import('../views/main/ShareholderInfo.vue'),
       },
       {
+        path: '/Cart2',
+        name: 'Cart2',
+        component: () => import('../views/main/Cart2.vue'),
+      },
+      {
+        path: '/Checkout',
+        name: 'Checkout',
+        component: () => import('../views/main/Checkout.vue'),
+      },
+      {
+        path: '/Checkoutsuccess',
+        name: 'Checkoutsuccess',
+        component: () => import('../views/main/Checkoutsuccess.vue'),
+      },
+      {
         path: '/NEXT',
         name: 'NEXT_STEP',
         component: () => import('../views/main/Next.vue'),
