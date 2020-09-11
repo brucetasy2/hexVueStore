@@ -35,7 +35,7 @@
           </div>
 
           <div class="d-flex">
-            <router-link to="#"
+            <router-link to="/Loveproducts"
                class='mr-5 nav-link fas fa-heart'>
             </router-link>
 
