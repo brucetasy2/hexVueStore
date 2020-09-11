@@ -35,15 +35,19 @@
           </div>
 
           <div class="d-flex">
-            <a href="#"><i class="fas fa-heart mr-5"></i></a>
-            <a href="./cart-2.html">
-              <i class="fas fa-shopping-cart"></i>
-              <span
+            <router-link to="#"
+               class='mr-5 nav-link fas fa-heart'>
+            </router-link>
+
+            <router-link to='ShareholderInfo'
+               class='mr-5 nav-link fas fa-shopping-cart'>
+               <span
                 class="badge badge-pill badge-danger"
                 style="transform: translateX(2px) translateY(-2px);">
                 {{this.cntCount}}
               </span>
-            </a>
+            </router-link>
+
           </div>
 
       </nav>

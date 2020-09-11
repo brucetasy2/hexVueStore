@@ -12,8 +12,13 @@
           <p class="font-weight-bold">原價 {{products.origin_price}} 特價 {{products.price}}</p>
           <p v-html="products.content"></p>
 
-          <div class="my-4">
-            <img :src="products.imageUrl[0]">
+          <div class="my-4" >
+            <div class="rounded-0 col-md-7"
+                style="height:500px; background-size: cover;
+                background-position: center center;"
+                :style="{backgroundImage: 'url(' +products.imageUrl[0] + ')' }">
+              </div>
+            <!-- <img :src="products.imageUrl[0]"> -->
           </div>
 
           <div class="accordion border
@@ -43,13 +48,15 @@
           </div>
         </div>
 
+        <!-- 購物車調整 -->
         <div class="col-md-4">
           <div class="input-group mb-3 border mt-3">
             <div class="input-group-prepend">
               <button
-              class="btn btn-outline-dark rounded-0 border-0 py-3"
+              class="btn btn-outline-dark rounded-0 border-0 py-3 text-danger"
               type="button" id="button-addon1"
-              @click="quantityUpdata(products.id,products.quantity + 1)"
+              :class = "this.cartsFilter.length <=0 ? 'disabled':'' "
+              @click="quantityUpdata(curId,curNum-1)"
               >
                 <i class="fas fa-minus"></i>
               </button>
@@ -58,20 +65,29 @@
             <input type="text"
             class="form-control border-0 text-center my-auto shadow-none"
             aria-label="Example text with button addon"
-            aria-describedby="button-addon1" value="1"
+            aria-describedby="button-addon1" :value="curNum"
             >
 
             <div class="input-group-append">
-              <button class="btn btn-outline-dark rounded-0 border-0 py-3"
+              <button class="btn btn-outline-dark rounded-0 border-0 py-3 text-success"
               type="button" id="button-addon2"
-              @click="quantityUpdata(products.id,products.products - 1)"
+              :class = "this.cartsFilter.length <=0 ? disabled='disabled':'' "
+              @click="quantityUpdata(curId,curNum+1)"
               >
                 <i class="fas fa-plus"></i>
               </button>
             </div>
 
           </div>
-          <a href="./checkout.html" class="btn btn-dark btn-block rounded-0 py-3">加入購物車</a>
+          <a href="#" @click.prevent="addtoCart(curId,curNum)"
+            class="btn btn-dark btn-block rounded-0 py-3 "
+            :class = "this.cartsFilter.length>0 ? 'disabled':'' "
+          >加入購物車</a>
+
+          <!-- <a href="#" @click.prevent="removeAllCartItem()"
+            class="btn btn-dark btn-block rounded-0 py-3 "
+          >CLEAR購物車</a> -->
+
         </div>
       </div>
     </div>
@@ -85,7 +101,6 @@ import { EventBus } from '@/components/Eventbus.js';
 export default {
   name: 'ProductsDetail',
   components: {
-    // Pagination,
   },
   data() {
     return {
@@ -93,6 +108,9 @@ export default {
       isLoading: false,
       uuid: process.env.VUE_APP_UUID,
       carts: {},
+      cartsFilter: {},
+      curId: '',
+      curNum: 1,
       status: {
         loadingItem: '',
       },
@@ -100,8 +118,9 @@ export default {
   },
   created() {
     const { id } = this.$route.params;
+    this.curId = this.$route.params.id;
     this.getProducts(id);
-    // this.getCart();
+    this.getCart(id);
   },
   methods: {
     getProducts(id) {
@@ -113,11 +132,11 @@ export default {
           this.products = res.data.data;
           this.isLoading = false;
         })
-        .catch((error) => {
+        .catch(() => {
           this.$swal.fire({
             icon: 'error',
-            title: 'Oops1...',
-            text: `錯誤代碼${error.request.status}`,
+            title: '取得產品資訊',
+            text: '發生異常',
           });
           this.isLoading = false;
         });
@@ -131,68 +150,38 @@ export default {
         .then((res) => {
           this.carts = res.data.data;
           this.isLoading = false;
-          // 購物車目前商品統計
-          EventBus.$emit('cartsQuantity', this.carts.length);
-        })
-        .catch((error) => {
-          this.$swal.fire({
-            icon: 'error',
-            title: '取得購物車內容失敗...',
-            text: `錯誤代碼${error.request.status}`,
-          });
-          this.isLoading = false;
+
+          // 成功回傳後，接續處理
+          this.cartsFilter = this.carts.filter((somegood) => somegood.product.id === this.curId);
+          const [curProductx] = this.cartsFilter;
+          this.curNum = curProductx.quantity;
+          EventBus.$emit('cartsQuantity', this.carts.length); // 購物車目前商品統計
         });
     },
 
     quantityUpdata(id, num) {
       // 避免商品數量低於 0 個
+      console.log(`id ${id} and num ${num}`);
       if (num <= 0) return;
-      this.isLoading = true;
-      const url = `${process.env.VUE_APP_APIPATH}${this.uuid}/ec/shopping`;
-
       const data = {
         product: id,
         quantity: num,
       };
+      this.isLoading = true;
+      const url = `${process.env.VUE_APP_APIPATH}${this.uuid}/ec/shopping`;
 
       this.$http.patch(url, data).then(() => {
         this.isLoading = false;
+        this.curNum = num;
+        console.log('quantityUpdata DOWN');
         this.getCart();
       });
     },
-    getOrder() {
-      // 取得目前電單中 有沒有此項目，若有更新購置數量 ，若是沒有預設為 1 todo
-      this.isLoading = true;
-      const api = `${process.env.VUE_APP_APIPATH}${this.uuid}/ec/orders`;
-      const order = { ...this.DeliveryInf };
-      if (this.coupon.enabled) {
-        order.coupon = this.coupon.code;
-      }
-      this.$http
-        .post(api, order)
-        .then((res) => {
-          this.$swal.fire({
-            icon: 'sucess',
-            title: '訂單建立',
-            text: '成功',
-          });
-          this.$router.push(`/admin/Payment/${res.data.data.id}`);
-        })
-        .catch((error) => {
-          this.$swal.fire({
-            icon: 'error',
-            title: '建立訂單失敗...',
-            text: `錯誤代碼${error.request.status}`,
-          });
-        });
-      this.isLoading = false;
-    },
 
-    addtoCart(item, quantity = 1) {
-      this.tempProduct = item;
-      this.status.loadingItem = item.id;
+    addtoCart(id, quantity = 1) {
+      this.status.loadingItem = id;
       const cart = {
-        product: item.id,
+        product: id,
         quantity,
       };
 
@@ -211,17 +200,41 @@ export default {
           });
           this.getCart();
         })
-        .catch((error) => {
+        .catch(() => {
           this.$swal.fire({
             icon: 'error',
             title: '加入購物車..',
-            text: `失敗,錯誤代碼${error.request.status}`,
+            text: '發生異常',
           });
           this.isLoading = false;
           this.status.loadingItem = '';
         });
     },
 
+    removeAllCartItem() {
+      this.isLoading = true;
+      const api = `${process.env.VUE_APP_APIPATH}${this.uuid}/ec/shopping/all/product`;
+      this.$http
+        .delete(api)
+        .then((res) => {
+          window.xyzdel = res;
+          this.isLoading = false;
+          this.$swal.fire({
+            icon: 'sucess',
+            title: '購物車商品移除..',
+            text: '成功',
+          });
+        })
+        .catch((error) => {
+          this.$swal.fire({
+            icon: 'error',
+            title: '購物車商品移除失敗...',
+            text: `錯誤代碼${error.request.status}`,
+          });
+          this.isLoading = false;
+        });
+      this.getCart();
+    },
   },
 };
 </script>
