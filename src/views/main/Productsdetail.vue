@@ -1,6 +1,6 @@
 <template>
  <div class="bg-white sticky-top">
-
+    <Loading :active.sync="isLoading" />
       <div class="container">
       <div style="min-height: 300px;
       background-image: url(https://images.unsplash.com/photo-1463936575829-25148e1db1b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
@@ -83,10 +83,6 @@
             class="btn btn-dark btn-block rounded-0 py-3 "
             :class = "this.cartsFilter.length>0 ? 'disabled':'' "
           >加入購物車</a>
-
-          <!-- <a href="#" @click.prevent="removeAllCartItem()"
-            class="btn btn-dark btn-block rounded-0 py-3 "
-          >CLEAR購物車</a> -->
 
         </div>
       </div>
@@ -173,7 +169,6 @@ export default {
       this.$http.patch(url, data).then(() => {
         this.isLoading = false;
         this.curNum = num;
-        console.log('quantityUpdata DOWN');
         this.getCart();
       });
     },
@@ -211,30 +206,6 @@ export default {
         });
     },
 
-    removeAllCartItem() {
-      this.isLoading = true;
-      const api = `${process.env.VUE_APP_APIPATH}${this.uuid}/ec/shopping/all/product`;
-      this.$http
-        .delete(api)
-        .then((res) => {
-          window.xyzdel = res;
-          this.isLoading = false;
-          this.$swal.fire({
-            icon: 'sucess',
-            title: '購物車商品移除..',
-            text: '成功',
-          });
-        })
-        .catch((error) => {
-          this.$swal.fire({
-            icon: 'error',
-            title: '購物車商品移除失敗...',
-            text: `錯誤代碼${error.request.status}`,
-          });
-          this.isLoading = false;
-        });
-      this.getCart();
-    },
   },
 };
 </script>

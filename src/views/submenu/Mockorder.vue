@@ -295,6 +295,7 @@
                   </tfoot>
                 </table>
                 <!-- 顯示購物車資料 endof-->
+
                 <!-- 套用優惠碼 START-->
                 <div class="input-group mb-3 input-group">
                   <input
@@ -790,6 +791,8 @@ export default {
         });
       this.isLoading = false;
     },
+
+    // ENOFMOTHOD
   },
 };
 </script>
