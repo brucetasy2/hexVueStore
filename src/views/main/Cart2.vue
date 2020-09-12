@@ -44,6 +44,7 @@
               <input v-model="coupon_code"
                 type="text" class="form-control" placeholder="請輸入優惠碼">
               <button class="btn btn-outline-secondary"
+               :class="this.cartTotal-this.coupon_discountValue <=0 ? 'disabled' :'' "
               type="button" style="width: 150px;"  @click="addCoupon()">
                 套用優惠碼
               </button>
@@ -69,6 +70,7 @@
             <p class="mb-0 h4 font-weight-bold">NT$ {{this.cartTotal-this.coupon_discountValue}}</p>
           </div>
          <router-link :to="`/Checkout`"
+          :class="this.cartTotal-this.coupon_discountValue <=0 ? 'disabled' :'' "
           class="btn btn-dark btn-block mt-4 rounded-0 py-3">送出訂單
          </router-link>
         </div>
@@ -164,6 +166,7 @@ export default {
             icon: 'sucess',
             title: '使用優惠券',
             text: '成功',
+            timer: 1500,
           });
         })
         .catch((error) => {
@@ -210,6 +213,7 @@ export default {
             icon: 'sucess',
             title: '購物車商品移除..',
             text: '成功',
+            timer: 1500,
           });
           this.getCart();
         })

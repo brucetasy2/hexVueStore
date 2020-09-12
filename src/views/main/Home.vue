@@ -5,7 +5,7 @@
         <!-- <a class='navbar-brand text-light bg-dark' href='#'>Vue 前台管理系統</a> -->
         <a class="navbar-brand position-absolute" href="./index.html"
            style="left: 50%; transform: translate(-50%, -50%); top: 50%;">
-           Navbar
+           Rototo
         </a>
 
         <button
@@ -27,10 +27,10 @@
                  class='nav-link'>產品列表</router-link>
               </li>
 
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <router-link to='ShareholderInfo'
                 class='nav-link'>股東訊息</router-link>
-              </li>
+              </li> -->
             </ul>
           </div>
 
