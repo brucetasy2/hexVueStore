@@ -31,6 +31,11 @@
                 <router-link to='ShareholderInfo'
                 class='nav-link'>股東訊息</router-link>
               </li> -->
+
+              <li class="nav-item">
+                <router-link to='next'
+                class='nav-link'>管理</router-link>
+              </li>
             </ul>
           </div>
 

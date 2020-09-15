@@ -459,7 +459,7 @@ export default {
         this.$swal.fire({
           icon: 'success',
           title: `${this.isNew ? '新增產品' : '修改產品'} 存檔`,
-          text: '成功 !',
+          text: '成功!',
           timer: 1500,
         });
         this.isLoading = false;
@@ -468,11 +468,11 @@ export default {
         this.xerror = error.response.data;
         this.isLoading = false;
         $('#productModal').modal('hide');
-
         this.$swal.fire({
           icon: 'error',
           title: `${this.isNew ? '新增產品' : '修改產品'} 存檔`,
-          text: `錯誤代碼${this.xerror.message} ${this.xerror.errors.description[0]}`,
+          text: '失敗!',
+          timer: 1500,
         });
       });
     },

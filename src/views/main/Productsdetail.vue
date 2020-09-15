@@ -3,14 +3,14 @@
     <Loading :active.sync="isLoading" />
       <div class="container">
       <div style="min-height: 300px;
-      background-image: url(https://images.unsplash.com/photo-1463936575829-25148e1db1b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
-      background-position: center center;">
+      background-image: url(https://cdn.pixabay.com/photo/2016/07/04/11/32/succulent-1496452__340.jpg);
+      background-position: 50% 30%; background-size: cover; ">
       </div>
       <div class="row justify-content-between mt-4 mb-7">
         <div class="col-md-7">
           <h2 class="mb-0">產品名稱 : {{products.title}}</h2>
           <p class="font-weight-bold">原價 {{products.origin_price}} 特價 {{products.price}}</p>
-          <p v-html="products.content"></p>
+          <p v-html="products.description"></p>
 
           <div class="my-4" >
             <div class="rounded-0 col-md-7"
@@ -39,8 +39,8 @@
 
               <div id="collapseOne" class="collapse show"
                 aria-labelledby="headingOne" data-parent="#accordionExample">
-                <div class="card-body pb-5">
-                  {{products.description}}
+                <div class="card-body pb-5" v-html="products.content">
+                  <!-- {{}} -->
                 </div>
               </div>
             </div>

@@ -44,7 +44,7 @@
 
             <div class="position-absolute p-2 heart-icon bg-secondary">
               <i class="fas fa-heart "
-              :class = " isTracer(item.id)  ? 'text-danger' : 'text-white' " href="#"
+              :class = " isTracer(item.id)  ? 'text-danger' : 'text-white' "
               @click="gotracer(item.id)" ></i>
             </div>
 
@@ -52,11 +52,13 @@
               <span class="badge badge-secondary float-right ml-2">
                 {{ item.category }}
               </span>
-              <a href="#" class="">
-                <h5 class="card-title font-weight-bold text-brown">
+
+            <router-link :to="`/Productsdetail/${item.id}`">
+              <h5 class="card-title font-weight-bold text-brown">
                 {{ item.title }}
-                </h5>
-              </a>
+              </h5>
+            </router-link>
+
               <p class="card-text" v-html="item.content"></p>
 
               <div  class="text-right pr-2 h6">
