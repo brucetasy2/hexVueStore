@@ -9,7 +9,26 @@
       <div class="row justify-content-between mt-4 mb-7">
         <div class="col-md-7">
           <h2 class="mb-0">產品名稱 : {{products.title}}</h2>
-          <p class="font-weight-bold">原價 {{products.origin_price}} 特價 {{products.price}}</p>
+          <!-- <p class="font-weight-bold">原價 {{products.origin_price}} 特價
+            {{products.price}}</p> -->
+
+          <div class="row justify-content-between mt-2">
+            <div class="col-md-7 text-right">
+              <p
+               :style="products.origin_price < products.price ?
+               'text-decoration:none;' : 'text-decoration: line-through;'">
+               原價:{{ products.origin_price }}元</p>
+            </div>
+
+            <div class="col text-left">
+              <p :style="products.origin_price < products.price ?
+                  '' : 'font-weight:900;'"
+                 :class="products.origin_price < products.price ?
+                 '.text-dark':'text-danger'">
+                 特價:{{ products.price }}元
+              </p>
+            </div>
+          </div>
           <p v-html="products.description"></p>
 
           <div class="my-4" >
@@ -18,7 +37,6 @@
                 background-position: center center;"
                 :style="{backgroundImage: 'url(' +products.imageUrl[0] + ')' }">
               </div>
-            <!-- <img :src="products.imageUrl[0]"> -->
           </div>
 
           <div class="accordion border
@@ -40,7 +58,6 @@
               <div id="collapseOne" class="collapse show"
                 aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body pb-5" v-html="products.content">
-                  <!-- {{}} -->
                 </div>
               </div>
             </div>
@@ -55,7 +72,7 @@
               <button
               class="btn btn-outline-dark rounded-0 border-0 py-3 text-danger"
               type="button" id="button-addon1"
-              :class = "this.cartsFilter.length <=0 ? 'disabled':'' "
+              :class = "this.Incart ===true ? '':'disabled' "
               @click="quantityUpdata(curId,curNum-1)"
               >
                 <i class="fas fa-minus"></i>
@@ -71,18 +88,19 @@
             <div class="input-group-append">
               <button class="btn btn-outline-dark rounded-0 border-0 py-3 text-success"
               type="button" id="button-addon2"
-              :class = "this.cartsFilter.length <=0 ? disabled='disabled':'' "
+              :class = "this.Incart ===true ? '':'disabled' "
               @click="quantityUpdata(curId,curNum+1)"
               >
                 <i class="fas fa-plus"></i>
               </button>
             </div>
-
           </div>
+
           <a href="#" @click.prevent="addtoCart(curId,curNum)"
             class="btn btn-dark btn-block rounded-0 py-3 "
-            :class = "this.cartsFilter.length>0 ? 'disabled':'' "
-          >加入購物車</a>
+            :class = "this.Incart ===true ? 'disabled':'' "
+          >加入購物車
+          </a>
 
         </div>
       </div>
@@ -107,6 +125,7 @@ export default {
       cartsFilter: {},
       curId: '',
       curNum: 1,
+      Incart: false,
       status: {
         loadingItem: '',
       },
@@ -150,6 +169,7 @@ export default {
           // 成功回傳後，接續處理
           this.cartsFilter = this.carts.filter((somegood) => somegood.product.id === this.curId);
           const [curProductx] = this.cartsFilter;
+          this.Incart = (curProductx.quantity > 0);
           this.curNum = curProductx.quantity;
           EventBus.$emit('cartsQuantity', this.carts.length); // 購物車目前商品統計
         });
@@ -158,6 +178,20 @@ export default {
     quantityUpdata(id, num) {
       // 避免商品數量低於 0 個
       console.log(`id ${id} and num ${num}`);
+      console.log(`this.Incart ${this.Incart}`);
+
+      if (this.Incart === false) {
+        this.isLoading = false;
+        this.status.loadingItem = '';
+        this.$swal.fire({
+          icon: 'warning',
+          title: '請先點選',
+          text: '加入購物車..',
+          timer: 1500,
+        });
+        return;
+      }
+
       if (num <= 0) return;
       const data = {
         product: id,
@@ -179,7 +213,6 @@ export default {
         product: id,
         quantity,
       };
-
       this.isLoading = true;
       const api = `${process.env.VUE_APP_APIPATH}${this.uuid}/ec/shopping`;
       this.$http

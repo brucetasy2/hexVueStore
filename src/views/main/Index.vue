@@ -53,7 +53,7 @@
             <div class="d-flex flex-column">
               <div class="p-2">
                 <h2 class="font-weight-bold text-lg-center"  style="color:#F0425C; ">
-                  圓胖喜感逗趣
+                  圓胖、喜感、逗趣
                 </h2>
               </div>
               <div class="p-2">
@@ -235,7 +235,7 @@
       <div class="row">
         <div class="col">
         <p>
-             多肉<br/>
+             多肉植物<br/>
              有時像蛋糕上的奶油裝飾品、<br/>
              有時化身毛茸茸的溫暖模樣、<br/>
              有時也像花朵燦爛綻放、 <br/>

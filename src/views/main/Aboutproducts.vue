@@ -60,11 +60,7 @@
             </router-link>
 
               <p class="card-text" v-html="item.content"></p>
-
               <div class="row justify-content-around ">
-                <!-- text-right pr-2 -->
-                <!-- {{ item.origin_price }}元 {{ item.price }}元 -->
-
                   <div class="col">
                     <p
                     :style="item.origin_price < item.price ?
@@ -77,16 +73,15 @@
                       特價:{{ item.price }}元
                     </p>
                     </div>
-
               </div>
             </div>
 
-            <div  class="card-footer d-flex border-top-0 bg-white">
-              <button  type="button"
+            <div class="card-footer d-flex border-top-0 bg-white">
+              <button type="button"
                 class="btn btn-outline-brown btn-block rounded-0"
                 @click="addtoCart(item, 1)"
                 >
-                <i  aria-hidden="true"
+                <i aria-hidden="true"
                 class="fa fa-cart-plus"></i> 加到購物車
               </button>
             </div>
