@@ -1,6 +1,7 @@
 <template>
   <div class="bg-white sticky-top">
-    <div class="container">
+
+     <div class="container">
       <nav class="navbar px-0 navbar-expand-lg navbar-light bg-white">
         <!-- <a class='navbar-brand text-light bg-dark' href='#'>Vue 前台管理系統</a> -->
         <a class="navbar-brand position-absolute" href="./index.html"

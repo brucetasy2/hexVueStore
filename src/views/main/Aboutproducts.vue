@@ -61,8 +61,23 @@
 
               <p class="card-text" v-html="item.content"></p>
 
-              <div  class="text-right pr-2 h6">
-                {{ item.origin_price }}元 {{ item.price }}元
+              <div class="row justify-content-around ">
+                <!-- text-right pr-2 -->
+                <!-- {{ item.origin_price }}元 {{ item.price }}元 -->
+
+                  <div class="col">
+                    <p
+                    :style="item.origin_price < item.price ?
+                      'text-decoration:none;' : 'text-decoration: line-through;'">
+                      原價:{{ item.origin_price }}元</p>
+                  </div>
+                  <div class="col">
+                    <p :style="item.origin_price < item.price ?
+                      '' : 'font-weight:900;'">
+                      特價:{{ item.price }}元
+                    </p>
+                    </div>
+
               </div>
             </div>
 
@@ -115,6 +130,12 @@ export default {
         loadingItem: '',
       },
       tracerpro: [],
+      tdl: {
+        'text-decoration-line': 'line-through',
+      },
+      tdln: {
+        'text-decoration-line': 'none',
+      },
     };
   },
   created() {

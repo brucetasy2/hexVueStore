@@ -1,7 +1,119 @@
 <template>
   <div>
     <Loading :active.sync="isLoading" />
-    <div class="container">
+
+<!-- 1st -->
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <!-- #1 ST -->
+    <div class="carousel-item active">
+      <img class="d-block w-100"
+      style="height: 500px; object-fit: cover;"
+      src="https://images.unsplash.com/photo-1520006709240-e2a6f6323d8e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      alt="1 slide">
+
+      <div class="carousel-caption ">
+        <div class="row">
+          <div class="col"></div>
+          <div class="col col-lg-3">
+            <div class="d-flex flex-column">
+              <div class="p-2">
+                <h2 class="font-weight-bold text-lg-center" style="color:#27233A;">
+                  天性堅韌
+                </h2>
+              </div>
+              <div class="p-2">
+                <p class="font-weight-bold "
+                  style="font-size:24px; color:#27233A;">
+                  幾個星期不澆水也活得下去，很適合忙碌健忘的現代人。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- #1 ED -->
+    <!-- #2 ST -->
+    <div class="carousel-item">
+      <img class="d-block w-100"
+      style="height: 500px; object-fit: cover;"
+      src="https://images.unsplash.com/photo-1491381444146-6ef9fec7d309?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      alt="2 slide">
+
+      <div class="carousel-caption ">
+        <div class="row">
+          <div class="col"></div>
+          <div class="col col-lg-3">
+            <div class="d-flex flex-column">
+              <div class="p-2">
+                <h2 class="font-weight-bold text-lg-center"  style="color:#F0425C; ">
+                  圓胖喜感逗趣
+                </h2>
+              </div>
+              <div class="p-2">
+                <p class="font-weight-bold "
+                  style="font-size:24px;  color:#F0425C;">
+                  撫慰與調節現代人緊張的生活步調，減低憂鬱發生。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- #2 ED -->
+
+    <!-- #3 ST -->
+    <div class="carousel-item">
+      <img class="d-block w-100"
+      style="height: 500px; object-fit: cover;"
+      src="https://images.unsplash.com/photo-1485199926533-8c38475abf2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      alt="3 slide">
+
+      <div class="carousel-caption ">
+        <div class="row ">
+          <div class="col col-lg-5">
+            <div class="p-2">
+              <h2 class="font-weight-bold text-lg-center" style="color:#673C41; ">
+                吸收有害物質
+              </h2>
+              </div>
+              <div class="p-2">
+                <p class="font-weight-bold "
+                  style="font-size:24px; color:#673C41;">
+                  對甲醛、苯等有害物質會有一定的淨化。<br/>接觸空氣面積較大的多肉，效果也會越好。
+                </p>
+              </div>
+          </div>
+          <div class="col ">
+            <div class="d-flex flex-column">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- #3 ED -->
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators"
+  role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators"
+  role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<!-- 1end -->
+    <div class="container mt-6">
       <div class="row flex-md-row-reverse flex-column">
         <div class="col-md-6">
           <img
@@ -28,12 +140,7 @@
                   </button>
                 </div>
             </div>
-              <!-- <small id="descriptionErr" class="form-text d-flex text-danger">
-                    {{ errors[0] }}
-              </small>
-             </ValidationProvider> -->
           </div>
-
         </div>
       </div>
 
@@ -109,16 +216,31 @@
     </div>
     <!-- 輪播區塊迄 -->
 
-    <div class="py-4">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-4 text-center">
-            <h3 class="text-danger">Rototo 肉多多 、多肉肉 </h3>
-            <p class="text-muted">
-             有時像蛋糕上的奶油裝飾品、
-             有時化身毛茸茸的溫暖模樣、 有時也像花朵燦爛綻放、 有時也迎風飄揚...</p>
-            <!-- <button class="btn btn-dark mt-4 rounded-0">Wait..</button> -->
-          </div>
+    <div class="container my-3">
+      <div class="row">
+        <div class="col text-danger my-4" style="font-size:24px;font-weight:bold;">
+          Rototo 肉多多
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <h5 style="font-size:16px;color:#00522E;">
+            提供名家設計款多肉植物，搭配特選花器、配合主題凸顯您的品味。<br/>
+            配合季節推出限量訂製品，，是送禮與自用最佳選擇 !
+          </h5>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+        <p>
+             多肉<br/>
+             有時像蛋糕上的奶油裝飾品、<br/>
+             有時化身毛茸茸的溫暖模樣、<br/>
+             有時也像花朵燦爛綻放、 <br/>
+             有時也迎風飄揚...
+        </p>
         </div>
       </div>
     </div>
