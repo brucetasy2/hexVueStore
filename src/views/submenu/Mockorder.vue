@@ -47,11 +47,11 @@
                     {{ item.origin_price }} 元</div>
                   <del
                     v-if="item.price"
-                    class="h6">原價 {{ item.origin_price }} 元</del>
+                    class="h6">原價 {{ item.origin_price  | currency }} 元</del>
                   <div
                     v-if="item.price"
                     class="h5">
-                    現在只要 {{ item.price }} 元
+                    現在只要 {{ item.price  | currency }} 元
                   </div>
                 </div>
               </div>

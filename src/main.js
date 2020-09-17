@@ -13,6 +13,7 @@ import {
 import { regex } from 'vee-validate/dist/rules';
 import * as rules from 'vee-validate/dist/rules'; // 規則檔案（ex: email...）
 import zhTW from 'vee-validate/dist/locale/zh_TW.json'; // 語系檔案
+import currencyFilter from './filters/currency'; // 過濾器
 
 import App from './App.vue';
 import router from './router';
@@ -25,8 +26,8 @@ Vue.config.productionTip = false;
 
 window.$ = jQuery;
 
-// 過濾器
-Vue.filter('currency', (n) => n.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'));
+Vue.filter('currency', currencyFilter);
+// Vue.filter('currency', (n) => n.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'));
 
 // vee-validate
 Object.keys(rules).forEach((rule) => {

@@ -65,12 +65,12 @@
                     <p
                     :style="item.origin_price < item.price ?
                       'text-decoration:none;' : 'text-decoration: line-through;'">
-                      原價:{{ item.origin_price }}元</p>
+                      原價:{{ item.origin_price  | currency }}元</p>
                   </div>
                   <div class="col">
                     <p :style="item.origin_price < item.price ?
                       '' : 'font-weight:900;'">
-                      特價:{{ item.price }}元
+                      特價:{{ item.price  | currency }}元
                     </p>
                     </div>
               </div>

@@ -17,7 +17,7 @@
               <p
                :style="products.origin_price < products.price ?
                'text-decoration:none;' : 'text-decoration: line-through;'">
-               原價:{{ products.origin_price }}元</p>
+               原價:{{ products.origin_price  | currency  }}元</p>
             </div>
 
             <div class="col text-left">
@@ -25,7 +25,7 @@
                   '' : 'font-weight:900;'"
                  :class="products.origin_price < products.price ?
                  '.text-dark':'text-danger'">
-                 特價:{{ products.price }}元
+                 特價:{{ products.price | currency}}元
               </p>
             </div>
           </div>
