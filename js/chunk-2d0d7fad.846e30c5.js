@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0d7fad"],{"78b8":function(e,n,t){"use strict";t.r(n);var r=function(){var e=this,n=e.$createElement;e._self._c;return e._m(0)},a=[function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("div",{staticClass:"ShareholderInfo"},[t("h1",[e._v("股東訊息")])])}],c=t("2877"),l={},s=Object(c["a"])(l,r,a,!1,null,null,null);n["default"]=s.exports}}]);
+//# sourceMappingURL=chunk-2d0d7fad.846e30c5.js.map
