@@ -38,9 +38,9 @@ const routes = [
         component: () => import('../views/main/ShareholderInfo.vue'),
       },
       {
-        path: '/Cart2',
-        name: 'Cart2',
-        component: () => import('../views/main/Cart2.vue'),
+        path: '/Shoppingcart',
+        name: 'Shoppingcart',
+        component: () => import('../views/main/Shoppingcart.vue'),
       },
       {
         path: '/Checkout',
