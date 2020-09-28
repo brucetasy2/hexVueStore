@@ -278,8 +278,6 @@
 
 export default {
   name: 'CheckOut',
-  components: {
-  },
   data() {
     return {
       isNew: false,

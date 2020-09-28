@@ -75,8 +75,6 @@ import { EventBus } from '@/components/Eventbus.js';
 
 export default {
   name: 'LoveProducts',
-  components: {
-  },
   data() {
     return {
       pagination: {},

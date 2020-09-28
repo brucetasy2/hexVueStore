@@ -84,8 +84,6 @@
 
 export default {
   name: 'CheckOutSuccess',
-  components: {
-  },
   data() {
     return {
       isNew: false,

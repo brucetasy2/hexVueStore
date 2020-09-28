@@ -83,8 +83,6 @@
 
 export default {
   name: 'Cart2',
-  components: {
-  },
   data() {
     return {
       isNew: false,

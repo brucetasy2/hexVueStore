@@ -114,8 +114,6 @@ import { EventBus } from '@/components/Eventbus.js';
 
 export default {
   name: 'ProductsDetail',
-  components: {
-  },
   data() {
     return {
       products: [],

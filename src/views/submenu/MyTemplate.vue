@@ -1,7 +1,6 @@
 <template>
     <div>
         <h1>MyTemplate</h1>
-        <!-- <Pagination/> -->
     </div>
 </template>
 
@@ -9,9 +8,6 @@
 // import Pagination from '@/components/Pagination.vue';
 
 export default {
-  components: {
-    // Pagination,
-  },
   data() {
     return {
       isNew: false,
