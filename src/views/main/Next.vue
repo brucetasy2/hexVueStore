@@ -73,7 +73,7 @@
 
 <script>
 export default {
-  name: 'Login',
+  name: 'Next',
   data() {
     return {
       user: {
