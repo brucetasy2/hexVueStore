@@ -62,37 +62,37 @@ const routes = [
   {
     path: '/admin',
     name: 'Admin 管理頁面',
-    component: () => import('../views/submenu/Menucontainer.vue'),
+    component: () => import('../views/admin/Menucontainer.vue'),
     children: [
       {
         path: 'products',
         name: 'products_page',
-        component: () => import('../views/submenu/products.vue'),
+        component: () => import('../views/admin/products.vue'),
       },
       {
         path: 'storages',
         name: 'storages_page',
-        component: () => import('../views/submenu/storages.vue'),
+        component: () => import('../views/admin/storages.vue'),
       },
       {
         path: 'orders',
         name: 'orders_page',
-        component: () => import('../views/submenu/orders.vue'),
+        component: () => import('../views/admin/orders.vue'),
       },
       {
         path: 'coupons',
         name: 'coupons_page',
-        component: () => import('../views/submenu/Coupons.vue'),
+        component: () => import('../views/admin/Coupons.vue'),
       },
       {
         path: 'mockorder',
         name: 'mockorder_page',
-        component: () => import('../views/submenu/Mockorder.vue'),
+        component: () => import('../views/admin/Mockorder.vue'),
       },
       {
         path: 'Payment/:orderId',
         name: 'Payment_page',
-        component: () => import('../views/submenu/Payment.vue'),
+        component: () => import('../views/admin/Payment.vue'),
       },
     ],
   },

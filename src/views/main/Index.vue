@@ -235,7 +235,6 @@ export default {
         .get(api)
         .then((res) => {
           this.products = res.data.data;
-          // this.pagination = res.data.meta.pagination;
           this.isLoading = false;
         })
         .catch((error) => {
