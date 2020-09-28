@@ -23,13 +23,12 @@
           <div class="col col-lg-3">
             <div class="d-flex flex-column">
               <div class="p-2">
-                <h2 class="font-weight-bold text-lg-center" style="color:#27233A;">
+                <h2 class="font-weight-bold text-lg-center c3" >
                   天性堅韌
                 </h2>
               </div>
               <div class="p-2">
-                <p class="font-weight-bold "
-                  style="font-size:24px; color:#27233A;">
+                <p class="font-weight-bold c3">
                   幾個星期不澆水也活得下去，很適合忙碌健忘的現代人。
                 </p>
               </div>
@@ -52,13 +51,12 @@
           <div class="col col-lg-3">
             <div class="d-flex flex-column">
               <div class="p-2">
-                <h2 class="font-weight-bold text-lg-center"  style="color:#F0425C; ">
+                <h2 class="font-weight-bold text-lg-center c2">
                   圓胖、喜感、逗趣
                 </h2>
               </div>
               <div class="p-2">
-                <p class="font-weight-bold "
-                  style="font-size:24px;  color:#F0425C;">
+                <p class="font-weight-bold c2">
                   撫慰與調節現代人緊張的生活步調，減低憂鬱發生。
                 </p>
               </div>
@@ -80,13 +78,12 @@
         <div class="row ">
           <div class="col col-lg-5">
             <div class="p-2">
-              <h2 class="font-weight-bold text-lg-center" style="color:#673C41; ">
+              <h2 class="font-weight-bold text-lg-center c3">
                 吸收有害物質
               </h2>
               </div>
               <div class="p-2">
-                <p class="font-weight-bold "
-                  style="font-size:24px; color:#673C41;">
+                <p class="font-weight-bold c3">
                   對甲醛、苯等有害物質會有一定的淨化。<br/>接觸空氣面積較大的多肉，效果也會越好。
                 </p>
               </div>
@@ -170,14 +167,14 @@
 
     <div class="container my-3">
       <div class="row">
-        <div class="col text-danger my-4" style="font-size:24px;font-weight:bold;">
+        <div class="col text-danger my-4 display-4 " >
           Rototo 肉多多
         </div>
       </div>
 
       <div class="row">
         <div class="col">
-          <h5 style="font-size:16px;color:#00522E;">
+          <h5 >
             提供名家設計款多肉植物，搭配特選花器、配合主題凸顯您的品味。<br/>
             配合季節推出限量訂製品，，是送禮與自用最佳選擇 !
           </h5>
