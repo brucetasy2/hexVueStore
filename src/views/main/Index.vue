@@ -165,56 +165,8 @@
       </div>
     </div>
 
-    <!-- 輪播區塊起 -->
-    <div class="bg-light mt-7">
-      <div class="container">
-        <div id="carouselExampleControls"
-        class="carousel slide"
-        data-ride="carousel"
-        >
-
-          <div class="carousel-inner" >
-            <div class="carousel-item "
-            v-for="(item, index) in products" :key="item.id"
-            :class = "index===0 ? 'active':'' "
-            >
-              <div class="row justify-content-center py-7">
-                <div class="col-md-8 d-flex">
-                  <img :src="item.imageUrl[0]"
-                  alt="" class="rounded-circle mr-5"
-                  style="width: 160px; height: 160px; object-fit: cover;">
-                  <div class="d-flex flex-column">
-                    <p class="h5">{{ item.title}}</p>
-                    <p class="mt-auto text-muted" v-html="item.content"></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <a
-          class="carousel-control-prev"
-          href="#carouselExampleControls"
-          role="button"
-          data-slide="prev">
-            <!-- <span class="carousel-control-prev-icon " aria-hidden="true"></span> -->
-            <span class="fa fa-chevron-left fa-lg text-success" ></span>
-            <span class="sr-only">Previous</span>
-          </a>
-
-          <a class="carousel-control-next"
-          href="#carouselExampleControls"
-          role="button"
-          data-slide="next">
-            <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
-             <span class="fa fa-chevron-right fa-lg text-success" ></span>
-            <span class="sr-only">Next</span>
-          </a>
-
-        </div>
-      </div>
-    </div>
-    <!-- 輪播區塊迄 -->
+    <!-- 變更 Landcarousel 到 元件 目前失效中  -->
+    <Landcarousel > 元件 目前失效中 </Landcarousel >
 
     <div class="container my-3">
       <div class="row">
@@ -250,10 +202,12 @@
 <script>
 // eslint-disable-next-line import/extensions
 import { EventBus } from '@/components/Eventbus.js';
+import { Landcarousel } from '@/components/Landcarousel.vue';
 
 export default {
   name: 'index',
   components: {
+    Landcarousel,
   },
   data() {
     return {
