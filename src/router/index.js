@@ -6,56 +6,56 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    component: () => import('../views/main/Homecontainer.vue'),
+    component: () => import('../views/front/Homecontainer.vue'),
     children: [
       {
         path: '',
-        component: () => import('../views/main/Index.vue'),
+        component: () => import('../views/front/Index.vue'),
       },
       {
         path: '/index',
         name: 'Index',
-        component: () => import('../views/main/Index.vue'),
+        component: () => import('../views/front/Index.vue'),
       },
       {
         path: '/aboutproducts',
         name: 'Aboutproducts',
-        component: () => import('../views/main/Aboutproducts.vue'),
+        component: () => import('../views/front/Aboutproducts.vue'),
       },
       {
         path: '/loveproducts',
         name: 'Loveproducts',
-        component: () => import('../views/main/Loveproducts.vue'),
+        component: () => import('../views/front/Loveproducts.vue'),
       },
       {
         path: '/productsdetail/:id',
         name: 'Productsdetail',
-        component: () => import('../views/main/Productsdetail.vue'),
+        component: () => import('../views/front/Productsdetail.vue'),
       },
       {
         path: '/ShareholderInfo',
         name: 'ShareholderInfo',
-        component: () => import('../views/main/ShareholderInfo.vue'),
+        component: () => import('../views/front/ShareholderInfo.vue'),
       },
       {
         path: '/Shoppingcart',
         name: 'Shoppingcart',
-        component: () => import('../views/main/Shoppingcart.vue'),
+        component: () => import('../views/front/Shoppingcart.vue'),
       },
       {
         path: '/Checkout',
         name: 'Checkout',
-        component: () => import('../views/main/Checkout.vue'),
+        component: () => import('../views/front/Checkout.vue'),
       },
       {
         path: '/Checkoutsuccess',
         name: 'Checkoutsuccess',
-        component: () => import('../views/main/Checkoutsuccess.vue'),
+        component: () => import('../views/front/Checkoutsuccess.vue'),
       },
       {
         path: '/NEXT',
         name: 'NEXT_STEP',
-        component: () => import('../views/main/Next.vue'),
+        component: () => import('../views/front/Next.vue'),
       },
     ],
   },
