@@ -1,6 +1,6 @@
 <template>
   <div>
-    <MenuList2 />
+    <MenuList />
     <div class='container-fluid'>
       <div class='row'>
         <main role='main' class='col-md-12 ml-sm-auto px-4'>
@@ -14,12 +14,12 @@
 </template>
 
 <script>
-import MenuList2 from '@/views/submenu/Menu2.vue';
+import MenuList from '@/components/AdmMenu.vue';
 
 export default {
   name: 'Menucontainer',
   components: {
-    MenuList2,
+    MenuList,
   },
   data() {
     return {};
