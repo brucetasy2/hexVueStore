@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import Menu1 from '@/views/main/Home.vue';
-import Footer from '@/views/main/Footer.vue';
+import Menu1 from '@/components/Home.vue';
+import Footer from '@/components/Footer.vue';
 
 export default {
   name: 'Homecontainer',
