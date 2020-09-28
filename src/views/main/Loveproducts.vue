@@ -5,7 +5,7 @@
     justify-content-center border border-left-0
     border-right-0 border-top border-bottom">
       <h2>您喜愛的商品</h2>
-    </nav>
+   </nav>
 
     <div class="container mt-md-5 mt-3 mb-7">
       <div class="row">
@@ -58,11 +58,18 @@
       </div>
     </div>
 
+    <div class="container mt-md-5 mt-3 mb-7"  v-if="products.length==0 ">
+      <div class="row">
+        <div class="col">
+          <h5>您目前尚未加入任何喜愛的商品<i class="text-danger far fa-sad-tear fa-lg"></i></h5>
+        </div>
+      </div>
+    </div>
+
 </div>
 </template>
 
 <script>
-// import Pagination from '@/components/Pagination.vue';
 // eslint-disable-next-line import/extensions
 import { EventBus } from '@/components/Eventbus.js';
 
@@ -127,7 +134,6 @@ export default {
       this.products.splice(0, this.products.length);
       this.rowproducts.forEach((item) => {
         if (this.isTracer(item.id)) {
-          // 是追蹤的才加入顯示
           this.products.push(item);
         }
       });
@@ -174,8 +180,7 @@ export default {
         .then((res) => {
           this.carts = res.data.data;
           this.isLoading = false;
-          // 購物車目前商品統計
-          EventBus.$emit('cartsQuantity', this.carts.length);
+          EventBus.$emit('cartsQuantity', this.carts.length); // 購物車目前商品統計
         })
         .catch((error) => {
           this.$swal.fire({
@@ -213,7 +218,6 @@ export default {
       }
       return false;
     },
-
   },
 };
 </script>

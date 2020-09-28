@@ -91,23 +91,15 @@
       </div>
     </div>
 
-  <!-- <Pagination
-        :pages="pagination"
-        @naviPages="getProducts"
-      /> -->
 </div>
 </template>
 
 <script>
-// import Pagination from '@/components/Pagination.vue';
 // eslint-disable-next-line import/extensions
 import { EventBus } from '@/components/Eventbus.js';
 
 export default {
   name: 'AboutProducts',
-  components: {
-    // Pagination,
-  },
   data() {
     return {
       pagination: {},
@@ -231,7 +223,6 @@ export default {
     },
 
     gotracer(id) {
-      // console.log(`id ${id}`);
       if (this.tracerpro === null || this.tracerpro.length < 0) {
         this.tracerpro = [];
         this.tracerpro.push(id);

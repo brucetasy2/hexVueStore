@@ -3,7 +3,6 @@
 
      <div class="container">
       <nav class="navbar px-0 navbar-expand-lg navbar-light bg-white">
-        <!-- <a class='navbar-brand text-light bg-dark' href='#'>Vue 前台管理系統</a> -->
         <a class="navbar-brand position-absolute" href="./index.html"
            style="left: 50%; transform: translate(-50%, -50%); top: 50%;">
            Rototo
@@ -27,11 +26,6 @@
                  <router-link to='aboutproducts'
                  class='nav-link'>產品列表</router-link>
               </li>
-
-              <!-- <li class="nav-item">
-                <router-link to='next'
-                class='nav-link'>管理</router-link>
-              </li> -->
             </ul>
           </div>
 
